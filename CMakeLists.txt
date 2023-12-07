@@ -1,19 +1,20 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.10)
+
 project(hci4gooddepthcamera)
 
-find_package(realsense2 REQUIRED)
-
-find_library(LIB_PATH realsense2d ${CMAKE_LIBRARY_PATH} REQUIRED)
-find_library(LIB_PATH_2 realsense-filed ${CMAKE_LIBRARY_PATH} REQUIRED)
-find_library(LIB_PATH_3 libusb-1.0 ${CMAKE_LIBRARY_PATH} REQUIRED)
-find_library(LIB_PATH_4 fwd ${CMAKE_LIBRARY_PATH} REQUIRED)
-
-add_executable(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/main/source/main.cpp)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_INCLUDE_PATH})
+set(LIBREALSENSE_PATH "C:\\Program Files (x86)\\Intel RealSense SDK 2.0")
+file(GLOB_RECURSE SOURCES ${PROJECT_NAME}/sources/*.cpp)
+file(GLOB_RECURSE INCLUDE ${PROJECT_NAME}/include/*.h)
 
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/main/include)
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LIB_PATH_4})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LIB_PATH_3})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LIB_PATH_2})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LIB_PATH})
+add_executable(${PROJECT_NAME} ${SOURCES} ${INCLUDE})
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}/include)
+target_include_directories(${PROJECT_NAME} PRIVATE ${LIBREALSENSE_PATH}/include)
+
+target_link_libraries(${PROJECT_NAME} ${LIBREALSENSE_PATH}/lib/x64/realsense2.lib)
+
+file(GLOB LIBREALSENSE_DLL ${LIBREALSENSE_PATH}/bin/x64/*)
+
+file(COPY ${LIBREALSENSE_DLL} DESTINATION ${CMAKE_BINARY_DIR})
+
