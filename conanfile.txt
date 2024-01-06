@@ -1,9 +1,10 @@
 [requires]
 opencv/4.8.1
-
-[options]
-opencv/4.8.1:with_openexr=False
+librealsense/2.53.1
 
 [generators]
 CMakeDeps
 CMakeToolchain
+
+[layout]
+cmake_layout

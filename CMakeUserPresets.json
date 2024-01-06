@@ -4,6 +4,6 @@
         "conan": {}
     },
     "include": [
-        "C:\\Users\\aryah\\hci4goodresearch\\hci4gooddepthcamera\\build\\CMakePresets.json"
+        "C:\\Users\\aryah\\hci4goodresearch\\hci4gooddepthcamera\\build\\generators\\CMakePresets.json"
     ]
 }
