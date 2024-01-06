@@ -1,0 +1,9 @@
+[requires]
+opencv/4.8.1
+
+[options]
+opencv/4.8.1:with_openexr=False
+
+[generators]
+CMakeDeps
+CMakeToolchain

@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "C:\\Users\\aryah\\hci4goodresearch\\hci4gooddepthcamera\\build\\CMakePresets.json"
+    ]
+}
